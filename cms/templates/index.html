@@ -4,64 +4,75 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>layout 后台大布局 - Layui</title>
-		<link rel="stylesheet" href="../static/plugins/layui/v2.0.2/css/layui.css">
+		<title th:text="#{index.screen.title}">CMS主界面</title>
+		<link rel="stylesheet" href="../static/css/loder-style.css" th:href="@{/css/loder-style.css}">
 	</head>
 
 	<body>
 		<div class="layui-layout layui-layout-admin">
-			<div class="layui-header">
-				<div class="layui-logo">layui 后台布局</div>
-				<!-- 头部区域（可配合layui已有的水平导航） -->
-				<ul class="layui-nav layui-layout-left">
-					<li class="layui-nav-item">
-						<a href="">控制台</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">商品管理</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="javascript:;">其它系统</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="">邮件管理</a>
-							</dd>
-							<dd>
-								<a href="">消息管理</a>
-							</dd>
-							<dd>
-								<a href="">授权管理</a>
-							</dd>
-						</dl>
-					</li>
-				</ul>
-				<ul class="layui-nav layui-layout-right">
-					<li class="layui-nav-item">
-						<a href="javascript:;">
-							<img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+			<div class="layui-header header header-demo layui-bg-transparent">
+				<div class="layui-main">
+					<div class="admin-login-box">
+						<a class="logo" style="left: 0; color: white;" href="#">
+							<span style="font-size: 22px;">BeginnerAdmin</span>
 						</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="">基本资料</a>
-							</dd>
-							<dd>
-								<a href="">安全设置</a>
-							</dd>
-						</dl>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">退了</a>
-					</li>
-				</ul>
+						<div class="admin-side-toggle">
+							<i class="fa fa-bars" aria-hidden="true"></i>
+						</div>
+					</div>
+					<ul class="layui-nav admin-header-item">
+						<li class="layui-nav-item">
+							<a href="javascript:;" class="admin-header-user">
+								<img src="../static/image/index/0.jpg" />
+								<span style="color:white">beginner</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
+								</dd>
+								<dd>
+									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
+								</dd>
+								<dd id="lock">
+									<a href="javascript:;">
+										<i class="fa fa-lock" aria-hidden="true" style="padding-right: 3px;padding-left: 1px;"></i> 锁屏 (Alt+L)
+									</a>
+								</dd>
+								<dd>
+									<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+					<ul class="layui-nav admin-header-item-mobile">
+						<li class="layui-nav-item">
+							<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 
-			<div class="layui-side layui-bg-black">
-				<div class="layui-side-scroll">
+			<div class="layui-side layui-bg-transparent" id="admin-side">
+				<div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side">
 					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+					<ul class="layui-nav layui-nav-tree layui-bg-transparent">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="layui-anim layui-anim-up" href="javascript:;">所有商品</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a class="layui-anim layui-anim-scale" href="javascript:;">列表一</a>
+								</dd>
+								<dd>
+									<a class="layui-anim layui-anim-scale" href="javascript:;">列表二</a>
+								</dd>
+								<dd>
+									<a class="layui-anim layui-anim-scale" href="javascript:;">列表三</a>
+								</dd>
+								<dd>
+									<a class="layui-anim layui-anim-scale" href="">超链接</a>
+								</dd>
+							</dl>
+						</li>
 						<li class="layui-nav-item layui-nav-itemed">
 							<a class="layui-anim layui-anim-up" href="javascript:;">所有商品</a>
 							<dl class="layui-nav-child">
@@ -108,9 +119,9 @@
 				<div style="padding: 15px;">内容主体区域</div>
 			</div>
 
-			<div class="layui-footer">
+			<div class="layui-footer layui-bg-transparent" style="color:white;text-align: center;">
 				<!-- 底部固定区域 -->
-				© layui.com - 底部固定区域
+				© training.com
 			</div>
 		</div>
 		<script src="../static/plugins/layui/v2.0.2/layui.js"></script>
@@ -118,7 +129,7 @@
 			//JavaScript代码区域
 			layui.use('element', function() {
 				var element = layui.element;
-				
+
 			});
 		</script>
 	</body>
