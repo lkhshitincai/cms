@@ -1,5 +1,5 @@
 body{
-    background: url(../image/login/BG.jpg) no-repeat center center fixed;
+    background: /*[[@{/image/login/BG.jsp}]]*/ url(../../../public/image/login/BG.jpg) no-repeat center center fixed;
     background-color: #393D49;
     -webkit-background-size:cover;
     -moz-background-size:cover;
