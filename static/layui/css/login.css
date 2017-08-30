@@ -1,0 +1,96 @@
+body{
+    background: /*[[@{/image/login/BG.jsp}]]*/ url(../../../public/image/login/BG.jpg) no-repeat center center fixed;
+    background-color: #393D49;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+}
+.login-form-div{
+    height: 400px;
+	background-color: rgba(255, 255, 255, 0.407843);
+    border-radius: 10px;
+    color: aliceblue;
+}
+header {
+    height: 39px;
+    padding: 10px;
+    border-bottom: 1px solid aliceblue;
+}
+header h1 {
+    text-align: center;
+    font-size: 25px;
+    line-height: 40px;
+    text-shadow: 0 1px 4px #000000;
+}
+form{
+	padding: 30px 90px 0;
+	text-align: center;
+}
+#login_form .layui-form-item {
+    position: relative;
+}
+#login_form .login-icon {
+    position: absolute;
+    color: black;
+    top: 10px;
+    left: 10px;
+}
+#login_form .input {
+    /*width: 270px;*/
+    height: 42px;
+    padding-left: 34px;
+    background: #2d2d2d;
+    background: rgba(45,45,45,.15);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #3d3d3d;
+    border: 1px solid rgba(255,255,255,.15);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+#login_form input:-moz-placeholder {
+    color: #fff;
+}
+#login_form input:-ms-input-placeholder {
+    color: #fff;
+}
+#login_form input::-webkit-input-placeholder {
+    color: #fff;
+}
+#login_form input:focus {
+    outline: none;
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset, 0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset, 0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow:0 2px 3px 0 rgba(0,0,0,.1) inset, 0 2px 7px 0 rgba(0,0,0,.2);
+}
+.pull-left {
+    float: left !important;
+}
+.pull-right {
+    float: right !important;
+}
+.login-remember {
+    line-height: 38px;
+}
+.login-remember .layui-form-switch {
+    margin-top: 0px;
+}
+footer {
+    height: 35px;
+    padding: 10px 10px 0 10px;
+}
+footer p {
+    line-height: 35px;
+    text-align: center;
+}
