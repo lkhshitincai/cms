@@ -11,6 +11,8 @@
 		<meta name="format-detection" content="telephone=no">
 		<title th:text="#{index.screen.title}">CMS主界面</title>
 		<!--#include file="head.html"-->
+		<link rel="stylesheet" href="../../public/plugins/font-weather/css/weather-icons.min.css" th:href="@{/plugins/font-weather/css/weather-icons.min.css}" />
+		<script type="text/javascript" src="../../public/plugins/newsticker/jquery.newsTicker.js"></script>
 	</head>
 
 	<body>
@@ -52,19 +54,51 @@
 						<i class="layui-icon">&#xe615;</i>
 					</div>
 					<!--快速导航结束-->
-					<div id="nt-title-container" class="datecontainer">
-						123123
+					<!--信息栏-->
+					<div id="nt-title-container" class="running-text">
+						<ul class="date-top">
+							<li class="fa fa-calendar" style="margin-right:5px"></li>
+							<li id="Date"></li>
+						</ul>
+						<ul id="digital-clock" class="digital">
+							<li class="entypo-clock" style="margin-right:5px"></li>
+							<li id="Time"></li>
+						</ul>
+						<ul id="nt-title">
+							<li><i class="wi-day-lightning"></i>&#160;&#160;Berlin&#160;
+								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							</li>
+							<li><i class="wi-day-lightning"></i>&#160;&#160;Yogyakarta&#160;
+								<b>85</b><i class="wi-fahrenheit"></i>&#160;; Tonight- 72 °F (22.2 °C)
+							</li>
+
+							<li><i class="wi-day-lightning"></i>&#160;&#160;Sttugart&#160;
+								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							</li>
+
+							<li><i class="wi-day-lightning"></i>&#160;&#160;Muchen&#160;
+								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							</li>
+
+							<li><i class="wi-day-lightning"></i>&#160;&#160;Frankurt&#160;
+								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							</li>
+						</ul>
 					</div>
+					<!--信息栏-->
 					<!-- 顶部右侧菜单开始 -->
 					<ul class="layui-nav top_menu">
-						<li class="layui-nav-item showNotice" id="showNotice" pc>
-							<a href="javascript:;"><i class="fa fa-volume-up" aria-hidden="true"></i><cite>系统公告</cite></a>
-						</li>
 						<li class="layui-nav-item" mobile>
 							<a href="javascript:;" class="mobileAddTab"><i class="fa fa-cog" aria-hidden="true"></i><cite>设置</cite></a>
 						</li>
 						<li class="layui-nav-item" mobile>
 							<a href="javascript:;"><i class="fa fa-power-off" aria-hidden="true"></i> 退出</a>
+						</li>
+						<li class="layui-nav-item showNotice" id="showNotice" pc>
+							<a href="javascript:;"><i class="fa fa-volume-up" aria-hidden="true"></i><cite>系统公告</cite></a>
+						</li>
+						<li class="layui-nav-item msgCenter" pc>
+							<a href="javascript:;"><i class="fa fa-commenting-o" aria-hidden="true"></i><cite>消息中心</cite></a>
 						</li>
 						<li class="layui-nav-item lockcms" pc>
 							<a href="javascript:;"><i class="fa fa-lock" aria-hidden="true"></i><cite>锁屏</cite></a>
@@ -82,7 +116,16 @@
 									<a href="javascript:;"><i class="fa fa-cog fa-fw" aria-hidden="true"></i><cite>修改密码</cite></a>
 								</dd>
 								<dd>
+									<a href="javascript:;"><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i><cite>消息中心</cite></a>
+								</dd>
+								<dd>
+									<a href="javascript:;" class="changeTheam noAddTab"><i class="fa fa-life-ring fa-fw" aria-hidden="true"></i><cite>切换主题</cite></a>
+								</dd>
+								<dd>
 									<a href="javascript:;" class="changeSkin noAddTab"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i><cite>更换皮肤</cite></a>
+								</dd>
+								<dd>
+									<a href="javascript:;" class="lockcms noAddTab"><i class="fa fa-lock fa-fw" aria-hidden="true"></i><cite>锁屏</cite></a>
 								</dd>
 								<dd>
 									<a href="javascript:;" class="noAddTab"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i><cite>退出</cite></a>
