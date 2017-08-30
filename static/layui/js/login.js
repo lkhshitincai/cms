@@ -1,9 +1,26 @@
-layui.define(['form', 'user'], function(exports) {
+layui.define(['form', 'common'], function(exports) {
 	var form = layui.form,
-		user = layui.user;
-		
+		common = layui.common;
+
 	form.on('submit(login_form)', function(data) {
-		user.login('login_form');
+		location.href = "index.html";
+//          $.ajax({
+//          	type:"post",
+//          	url:"",
+//          	beforeSend:function(){
+//          		
+//          	},
+//          	error:function(a,b,c){
+//          		common.msgError(b);
+//          	},
+//          	success:function(result){
+//          		if(result.success){
+//          			location.href="index.html";
+//          		}else{
+//          			common.msgError(result.msg);
+//          		}
+//          	}
+//          });
 		return false;
 	});
 	exports('login', {});

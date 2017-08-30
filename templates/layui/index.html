@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title th:text="#{index.screen.title}">CMS主界面</title>
-		<link rel="stylesheet" href="../static/css/loder-style.css" th:href="@{/css/loder-style.css}">
+		<!--#include file="head.html"-->
 	</head>
 
 	<body>
@@ -23,7 +23,7 @@
 					<ul class="layui-nav admin-header-item">
 						<li class="layui-nav-item">
 							<a href="javascript:;" class="admin-header-user">
-								<img src="../static/image/index/0.jpg" />
+								<img src="../../public/image/index/0.jpg" />
 								<span style="color:white">beginner</span>
 							</a>
 							<dl class="layui-nav-child">
@@ -114,18 +114,14 @@
 				<div style="padding: 15px;">内容主体区域</div>
 			</div>
 
-			<div class="layui-footer layui-bg-transparent" style="color:white;text-align: center;">
+			<div class="layui-footer" style="text-align: center;">
 				<!-- 底部固定区域 -->
 				© training.com
 			</div>
 		</div>
-		<script src="../static/plugins/layui/v2.0.2/layui.js"></script>
-		<script>
+		<script type="text/javascript">
 			//JavaScript代码区域
-			layui.use('element', function() {
-				var element = layui.element;
-
-			});
+			layui.use('index', {});
 		</script>
 	</body>
 

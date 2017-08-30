@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+	
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title th:text="#{screen.login.title}">登陆</title>
+		<!-- 引入静态资源 项目中替换成自己的引入方案 -->
+		<!--#include file="head.html"-->
 		<link rel="stylesheet" href="../../static/layui/css/login.css" th:href="@{/layui/css/login.css}" />
 	</head>
 
@@ -54,23 +56,9 @@
 				</div>
 			</div>
 		</div>
-		<!--[if lt IE 9]>
-		  <script src="../../public/plugins/html5.min.js" th:src="@{/plugins/html5.min.js}"></script>
-		  <script src="../../public/plugins/respond.min.js" th:src="@{/plugins/respond.min.js}"></script>
-		<![endif]-->
-		<script type="text/javascript" src="../../public/plugins/layui/v2.0.2/layui.js" th:src="@{/plugins/layui/v2.0.2/layui.js}"></script>
-		<script src="../../static/layui/js/version.js"></script>
+		
 		<script type="text/javascript">
-//			layui.config({
-//				base: '../../static/layui/js/',
-//				version: new Date().getTime()
-//			}).extend({
-//				user: 'model/user',
-//				common: 'model/common'
-//			});
-			layui.use('form',function(){
-				$ = layui.jquery;
-			});
+			layui.use('login');
 		</script>
 	</body>
 
