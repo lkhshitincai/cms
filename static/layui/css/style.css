@@ -61,26 +61,23 @@ body {
 
 /*响应式*/
 @media screen and (max-width:1476px){
-	.top_menu>.showNotice{display: none;}
+	.top_menu>.showNotice {display: none;}
 }
 @media screen and (max-width:1360px){
-	.top_menu>.msgCenter{display: none;}
+	.top_menu>.msgCenter {display: none;}
 }
 @media screen and (max-width:1282px){
-	.panel{ width:33.3333%; }
+	.panel { width:33.3333%; }
 	.running-text{display: none;}
 }
 @media screen and (max-width:1050px){
-	.layui-nav.top_menu .layui-nav-item a{ padding:0 10px; }
+	.layui-nav .top_menu .layui-nav-item a{ padding:0 10px; }
 	.sysNotice{ width:100%; }
 	.component{ width:165px; }
-	.running-text{ display: none;}
 }
 @media screen and (max-width: 750px){
-	.running-text{ display: none;}
-	.logo{ padding:0;}
+	.logo { padding:0;}
 	.top_menu .layui-nav-item[pc],.component,.site-mobile .site-tree-mobile{ display: none !important; }
-	.top_menu .layui-nav-item.showNotice[pc]{ display:inline-block !important; }
 	.top_menu .layui-nav-item[mobile]{ display:inline-block; }
 	.layui-nav.top_menu,.layui-nav.top_menu .layui-nav-item a{ padding:0 10px; }
 	.layui-layout-admin .layui-main{ margin-right: 0; }
@@ -97,6 +94,5 @@ body {
 	.layui-body,.layui-layout-admin .layui-footer{ left:0; }
 }
 @media screen and (max-width:432px){
-	.top_menu .layui-nav-item.showNotice[pc]{ display:none !important; }
 	.panel{ width:100%; }
 }
