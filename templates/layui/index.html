@@ -64,33 +64,47 @@
 							<li class="entypo-clock" style="margin-right:5px"></li>
 							<li id="Time"></li>
 						</ul>
+						<!-- 天气插件 开始-->
+						<div id="tp-weather-widget"></div>
+						<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+						<script>tpwidget("init", {
+						    "flavor": "slim",
+						    "location": "WX4FBXXFKE4F",
+						    "geolocation": "enabled",
+						    "language": "auto",
+						    "unit": "c",
+						    "theme": "chameleon",
+						    "container": "tp-weather-widget",
+						    "bubble": "enabled",
+						    "alarmType": "badge",
+						    "color": "#FFFFFF",
+						    "uid": "U41C5B006E",
+						    "hash": "5f750df6e383777549478801d17f81fd"
+						});
+						tpwidget("show");</script>
+						<!--天气插件结束-->
+						<!-- 轮播插件 -->
 						<ul id="nt-title">
-							<li><i class="wi-day-lightning"></i>&#160;&#160;Berlin&#160;
-								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							<li>
+								信息1
 							</li>
-							<li><i class="wi-day-lightning"></i>&#160;&#160;Yogyakarta&#160;
-								<b>85</b><i class="wi-fahrenheit"></i>&#160;; Tonight- 72 °F (22.2 °C)
+							<li>
+								信息2
 							</li>
-
-							<li><i class="wi-day-lightning"></i>&#160;&#160;Sttugart&#160;
-								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							<li>
+								信息3
 							</li>
-
-							<li><i class="wi-day-lightning"></i>&#160;&#160;Muchen&#160;
-								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							<li>
+								信息4
 							</li>
-
-							<li><i class="wi-day-lightning"></i>&#160;&#160;Frankurt&#160;
-								<b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+							<li>
+								信息5
 							</li>
 						</ul>
 					</div>
 					<!--信息栏-->
 					<!-- 顶部右侧菜单开始 -->
 					<ul class="layui-nav top_menu">
-						<li class="layui-nav-item showNotice" id="showNotice" pc>
-							<a href="javascript:;"><i class="fa fa-volume-up" aria-hidden="true"></i><cite>系统公告</cite></a>
-						</li>
 						<li class="layui-nav-item" mobile>
 							<a href="javascript:;" class="mobileAddTab"><i class="fa fa-cog" aria-hidden="true"></i><cite>设置</cite></a>
 						</li>
@@ -203,6 +217,10 @@
 				<!-- 内容主体区域 -->
 				<div style="padding: 15px;">内容主体区域</div>
 			</div>
+
+			<!-- 移动导航 -->
+			<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
+			<div class="site-mobile-shade"></div>
 
 			<div class="layui-footer footer">
 				<!-- 底部固定区域 -->

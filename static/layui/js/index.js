@@ -14,10 +14,11 @@ layui.define(['element', 'form', 'common'], function(exports) {
 
 	$('.layui-unselect').addClass('layui-bg-transparent');
 	var nt_title = $('#nt-title').newsTicker({
-			row_height: 30,
-			max_rows: 1,
-			duration: 5000,
-			pauseOnHover: 0
-		});
+		row_height: 30,
+		max_rows: 1,
+		duration: 5000,
+		pauseOnHover: 0
+	});
+
 	exports('index', {});
 });

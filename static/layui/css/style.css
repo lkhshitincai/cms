@@ -49,31 +49,35 @@ body {
 .top_menu .fa{ font-size: 14px !important; }
 .top_menu .layui-nav-bar{ top:60px !important;}
 /*顶部信息滚动栏*/
-.running-text{float: left;color: #fff;height:30px;line-height:30px;margin: 15px 10px;width: 550px; position: relative;background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);border: 1px solid rgba(0, 0, 0, 0.2);border-radius: 30px;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);}
+.running-text{float: left;color: #fff;height:30px;line-height:30px;margin: 15px 10px;width: 650px; position: relative;background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);border: 1px solid rgba(0, 0, 0, 0.2);border-radius: 30px;box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);}
 .date-top {border-right: 1px solid rgba(0, 0, 0, 0.4);box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);float: left;margin-left: 12px;padding-right: 10px;}
 .date-top > li {display:inline;}
 .digital { margin-left: 5px;margin-right: 5px;padding-right: 15px;border-right: 1px solid rgba(0, 0, 0, 0.4);box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);float: left;}
 .digital li {display:inline;}
+#tp-weather-widget { float:left;margin-top: -5px;margin-right: 10px;border-right: 1px solid rgba(0, 0, 0, 0.4);box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1)}
 #nt-title {margin:0;}
 #nt-title li {list-style: none outside none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 /*底部*/
 .footer{ text-align: center; line-height:44px;border-left: 2px solid #1AA094;}
 
 /*响应式*/
-@media screen and (max-width:1476px){
-	.top_menu>.showNotice {display: none;}
-}
-@media screen and (max-width:1360px){
+@media screen and (max-width:1460px){
 	.top_menu>.msgCenter {display: none;}
 }
-@media screen and (max-width:1282px){
+@media screen and (max-width:1350px){
 	.panel { width:33.3333%; }
-	.running-text{display: none;}
+	.running-text{width: 450px;}
+	#nt-title{display: none;}
+}
+@media screen and (max-width:1150px){
+	.running-text{width: 300px;}
+	#tp-weather-widget{display: none;}
 }
 @media screen and (max-width:1050px){
-	.layui-nav .top_menu .layui-nav-item a{ padding:0 10px; }
-	.sysNotice{ width:100%; }
-	.component{ width:165px; }
+	.layui-nav .top_menu .layui-nav-item a { padding:0 10px; }
+}
+@media screen and (max-width:990px){
+	#nt-title-container {display: none;}
 }
 @media screen and (max-width: 750px){
 	.logo { padding:0;}
@@ -94,5 +98,5 @@ body {
 	.layui-body,.layui-layout-admin .layui-footer{ left:0; }
 }
 @media screen and (max-width:432px){
-	.panel{ width:100%; }
+	.panel { width:100%; }
 }
