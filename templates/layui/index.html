@@ -11,8 +11,6 @@
 		<meta name="format-detection" content="telephone=no">
 		<title th:text="#{index.screen.title}">CMS主界面</title>
 		<!--#include file="head.html"-->
-		<link rel="stylesheet" href="../../public/plugins/font-weather/css/weather-icons.min.css" th:href="@{/plugins/font-weather/css/weather-icons.min.css}" />
-		<script type="text/javascript" src="../../public/plugins/newsticker/jquery.newsTicker.js"></script>
 	</head>
 
 	<body>
@@ -24,7 +22,7 @@
 					<a href="#" class="logo">layui后台管理</a>
 					<!--logo区域结束 -->
 					<!--显示/隐藏菜单开始-->
-					<a href="javascript:;" class="fa fa-bars hideMenu" aria-hidden="true"></a>
+					<a href="javascript:void(0);" class="fa fa-bars hideMenu" aria-hidden="true"></a>
 					<!--显示/隐藏菜单结束-->
 					<!--快速导航开始-->
 					<div class="layui-form component">
@@ -66,24 +64,8 @@
 						</ul>
 						<!-- 天气插件 开始-->
 						<div id="tp-weather-widget"></div>
-						<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-						<script>tpwidget("init", {
-						    "flavor": "slim",
-						    "location": "WX4FBXXFKE4F",
-						    "geolocation": "enabled",
-						    "language": "auto",
-						    "unit": "c",
-						    "theme": "chameleon",
-						    "container": "tp-weather-widget",
-						    "bubble": "enabled",
-						    "alarmType": "badge",
-						    "color": "#FFFFFF",
-						    "uid": "U41C5B006E",
-						    "hash": "5f750df6e383777549478801d17f81fd"
-						});
-						tpwidget("show");</script>
 						<!--天气插件结束-->
-						<!-- 轮播插件 -->
+						<!-- 轮播插件开始 -->
 						<ul id="nt-title">
 							<li>
 								信息1
@@ -101,6 +83,7 @@
 								信息5
 							</li>
 						</ul>
+						<!-- 轮播插件结束 -->
 					</div>
 					<!--信息栏-->
 					<!-- 顶部右侧菜单开始 -->
@@ -150,74 +133,37 @@
 					<!-- 顶部右侧菜单结束 -->
 				</div>
 			</div>
-
-			<div class="layui-side layui-bg-transparent" id="admin-side">
-				<div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side">
-					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-					<ul class="layui-nav layui-nav-tree layui-bg-transparent">
-						<li class="layui-nav-item layui-nav-itemed">
-							<a class="layui-anim layui-anim-up" href="javascript:;">所有商品</a>
-							<dl class="layui-nav-child">
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="javascript:;">列表一</a>
-								</dd>
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="javascript:;">列表二</a>
-								</dd>
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="javascript:;">列表三</a>
-								</dd>
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="">超链接</a>
-								</dd>
-							</dl>
-						</li>
-						<li class="layui-nav-item layui-nav-itemed">
-							<a class="layui-anim layui-anim-up" href="javascript:;">所有商品</a>
-							<dl class="layui-nav-child">
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="javascript:;">列表一</a>
-								</dd>
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="javascript:;">列表二</a>
-								</dd>
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="javascript:;">列表三</a>
-								</dd>
-								<dd>
-									<a class="layui-anim layui-anim-scale" href="">超链接</a>
-								</dd>
-							</dl>
-						</li>
-						<li class="layui-nav-item">
-							<a href="javascript:;">解决方案</a>
-							<dl class="layui-nav-child">
-								<dd>
-									<a href="javascript:;">列表一</a>
-								</dd>
-								<dd>
-									<a href="javascript:;">列表二</a>
-								</dd>
-								<dd>
-									<a href="">超链接</a>
-								</dd>
-							</dl>
-						</li>
-						<li class="layui-nav-item">
-							<a href="">云市场</a>
-						</li>
-						<li class="layui-nav-item">
-							<a href="">发布商品</a>
-						</li>
-					</ul>
+			<!-- 左侧导航开始-->
+			<div class="layui-side layui-bg-transparent" id="menuDiv">
+				<div class="layui-side-scroll">
+					<!--子菜单项-->
+					<div id="submenu"></div>
 				</div>
 			</div>
-
-			<div class="layui-body">
-				<!-- 内容主体区域 -->
-				<div style="padding: 15px;">内容主体区域</div>
+			<!--左侧导航结束-->
+			
+			<!-- 右侧内容 -->
+			<div class="layui-body jqadmin-body">
+				<div class="layui-tab layui-tab-card jqadmin-tab-box" id="jqadmin-tab" lay-filter="tabmenu" lay-notAuto="true">
+					<ul class="layui-tab-title">
+						<li class="layui-this" id="admin-home" lay-id="0" fresh=1><i class="fa fa-home"></i><em> 后台首页</em></li>
+					</ul>
+					<div class="menu-btn" title="显示左则菜单">
+						<i class="iconfont">&#xe616;</i>
+					</div>
+					<div class="tab-move-btn">
+						<span>更多<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+					</div>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							<iframe class="jqadmin-iframe" data-id='0' src="welcome.html"></iframe>
+						</div>
+					</div>
+				</div>
 			</div>
-
+			
+			<ul class="menu-list" id="menu-list"></ul>
+			
 			<!-- 移动导航 -->
 			<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 			<div class="site-mobile-shade"></div>
@@ -227,10 +173,15 @@
 				© training.com
 			</div>
 		</div>
-		<script type="text/javascript">
-			//JavaScript代码区域
-			layui.use('index', {});
-		</script>
+		
 	</body>
-
+	<!--引入菜单模板-->
+	<!--#include file="tpl/menu.html"-->
+	<!--#include file="tpl/menu-list.html"-->
+	<script type="text/javascript" src="../../public/plugins/newsticker/jquery.newsTicker.js"></script>
+	<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+	<script type="text/javascript">
+		//JavaScript代码区域
+		layui.use('index', {});
+	</script>
 </html>

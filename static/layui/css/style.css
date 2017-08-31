@@ -57,8 +57,48 @@ body {
 #tp-weather-widget { float:left;margin-top: -5px;margin-right: 10px;border-right: 1px solid rgba(0, 0, 0, 0.4);box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1)}
 #nt-title {margin:0;}
 #nt-title li {list-style: none outside none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+
+/**内容主体*/
+.layui-layout-admin .jqadmin-body {border-left: solid 1px #1AA094;overflow-y: hidden;}
+.layui-tab-content {height: 100%;padding: 0;}
+.layui-body {overflow: hidden;}
+.layui-body .layui-tab {margin: 0;}
+.layui-tab-content .layui-tab-item {position: absolute;top: 42px;bottom: 0;left: 0;right: 0;padding: 0;margin: 0;}
+.jqadmin-body .jqadmin-tab-box {box-shadow: none;}
+.jqadmin-tab-box .layui-tab-title {border-bottom: 1px solid #1AA094;overflow: hidden;height: 40px;background: linear-gradient(#F1F1F1, #F3F3F3);}
+.jqadmin-tab-box .layui-tab-title li {border-right: 1px solid #E2E2E2;}
+.jqadmin-tab-box .layui-tab-title li em {font-style: normal;margin-left: 5px;}
+.layui-tab-title .layui-this:after {border: none;}
+.jqadmin-tab-box .layui-tab-title .layui-this {background: #1FA094;background: linear-gradient(#1FA094, #009688);color: #FFF;}
+.layui-tab-content .layui-tab-item .jqadmin-iframe {width: 100%;border: 0;height: 100%;}
+.jqadmin-tab-box .tab-move-btn {position: absolute;right: 0;top: 0px;background: #FFF;height: 42px;line-height: 40px;display: none;text-align: center;cursor: pointer; padding: 0 15px;border: 1px solid #1FA094;border-bottom: none;border-top: none;z-index: 10000;}
+.menu-list {position: absolute;right: 0;top: 102px;width: 120px;padding: 10px 15px;z-index: 998;background: #FFF;border: 1px solid #1FA094;border-top: none;border-radius: 0 0 3px 3px;display: none;}
+    
+    .menu-list li {
+        height: 28px;
+        line-height: 28px;
+    }
+    
+    .jqadmin-tab-box .tab-move-btn span {
+        font-size: 12px;
+    }
+    
+    .jqadmin-tab-box .tab-move-btn span i {
+        font-size: 8px;
+        padding-left: 5px;
+    }
+    
+    .jqadmin-tab-box .tab-move-btn .move-left-btn,
+    .jqadmin-tab-box .tab-move-btn .move-right-btn {
+        padding: 11px 5px;
+        cursor: pointer;
+        border-left: 1px solid #ccc;
+    }
+
 /*底部*/
-.footer{ text-align: center; line-height:44px;border-left: 2px solid #1AA094;}
+.footer{ text-align: center; line-height:44px;border-left: 1px solid #1AA094;}
+
+
 
 /*响应式*/
 @media screen and (max-width:1460px){
@@ -90,7 +130,8 @@ body {
 	.layui-layout-admin .layui-side{ left:-260px; }
 	.site-mobile .layui-side{ left: 0; z-index:9999; }
 	.site-tree-mobile {display: block!important; position: fixed; z-index: 100000; bottom: 15px; left: 15px; width: 50px; height: 50px; line-height: 50px; border-radius: 2px; text-align: center; background-color: rgba(0,0,0,.7); color: #fff;}
-	.site-mobile .site-mobile-shade { content: ''; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,.8); z-index: 999;}
+	.site-mobile .site-mobile-shade { content: ''; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,.2); z-index: 999;}
+	/*#menuDiv {background-color: rgba(0,0,0,.5)!important;}*/
 
 	/*layui-body*/
 	.panel{ width:50%; }
