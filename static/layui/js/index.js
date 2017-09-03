@@ -1,7 +1,8 @@
-layui.define(['element', 'common', 'jqmenu'], function(exports) {
+layui.define(['element', 'common', 'jqmenu', 'carousel'], function(exports) {
 	var common = layui.common,
 		element = layui.element,
-		menu = layui.jqmenu,
+		carousel = layui.carousel
+	menu = layui.jqmenu,
 		mainMenu = new menu();
 	jqIndex = function() {};
 
@@ -10,7 +11,10 @@ layui.define(['element', 'common', 'jqmenu'], function(exports) {
 	 */
 	jqIndex.prototype.init = function() {
 
-		mainMenu.init('#submenu-tpl',{icon:true,fresh:false});
+		mainMenu.init('#submenu-tpl', {
+			icon: true,
+			fresh: false
+		});
 		this.showMenu();
 		this.showMenuMobile();
 		this.initDateAndTime();
@@ -20,18 +24,21 @@ layui.define(['element', 'common', 'jqmenu'], function(exports) {
 	/**
 	 * 初始化轮播插件
 	 */
-	jqIndex.prototype.initNewsTicker = function(){
-		var nt_title = $('#nt-title').newsTicker({
-			row_height: 30,
-			max_rows: 1,
-			duration: 5000,
-			pauseOnHover: 0
+	jqIndex.prototype.initNewsTicker = function() {
+		carousel.render({
+			elem: '#nt-title',
+			indicator:'none',
+			arrow:'none',
+			anim:'updown',
+			height:'30px',
+			width:'245px',
+			interval:'5000'
 		});
 	}
 	/**
 	 * 初始化时间
 	 */
-	jqIndex.prototype.initDateAndTime = function(){
+	jqIndex.prototype.initDateAndTime = function() {
 		common.setDate('#Date');
 		common.setTime('#Time');
 		setInterval(function() {
@@ -44,7 +51,7 @@ layui.define(['element', 'common', 'jqmenu'], function(exports) {
 	/**
 	 * 加载天气信息
 	 */
-	jqIndex.prototype.initWeather = function(){
+	jqIndex.prototype.initWeather = function() {
 		tpwidget("init", {
 			"flavor": "slim",
 			"location": "WX4FBXXFKE4F",
@@ -89,7 +96,7 @@ layui.define(['element', 'common', 'jqmenu'], function(exports) {
 				key: 'moveType',
 				value: showType
 			});
-          	mainMenu.menuShowType();
+			mainMenu.menuShowType();
 		})
 	}
 	var index = new jqIndex();

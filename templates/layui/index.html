@@ -41,7 +41,7 @@
 					<!--显示/隐藏菜单结束-->
 					<!--快速导航开始-->
 					<div class="layui-form component">
-						<select id="searchList" lay-verify="required" lay-search=""></select>
+						<select id="searchList" lay-verify="required" lay-search="" lay-filter="search"></select>
 						<i class="layui-icon">&#xe615;</i>
 					</div>
 					<!--快速导航结束-->
@@ -59,23 +59,15 @@
 						<div id="tp-weather-widget"></div>
 						<!--天气插件结束-->
 						<!-- 轮播插件开始 -->
-						<ul id="nt-title">
-							<li>
-								信息1
-							</li>
-							<li>
-								信息2
-							</li>
-							<li>
-								信息3
-							</li>
-							<li>
-								信息4
-							</li>
-							<li>
-								信息5
-							</li>
-						</ul>
+						<div class="layui-carousel" id="nt-title">
+							<div carousel-item="">
+						    	<div><a href="javascript:alert(1)">条目111111111111111111111111111111111111111111</a></div>
+							    <div>条目222222222222222222222222222222222222222222</div>
+							    <div>条目333333333333333333333333333333333333333333</div>
+							    <div>条目444444444444444444444444444444444444444444</div>
+							    <div>条目555555555555555555555555555555555555555555</div>
+						  	</div>
+						</div>
 						<!-- 轮播插件结束 -->
 					</div>
 					<!--信息栏-->

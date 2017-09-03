@@ -55,8 +55,10 @@ body {
 .digital { margin-left: 5px;margin-right: 5px;padding-right: 15px;border-right: 1px solid rgba(0, 0, 0, 0.4);box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);float: left;}
 .digital li {display:inline;}
 #tp-weather-widget { float:left;margin-top: -5px;margin-right: 10px;border-right: 1px solid rgba(0, 0, 0, 0.4);box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1)}
-#nt-title {margin:0;}
-#nt-title li {list-style: none outside none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#nt-title{margin:0;background-color: transparent;float: left!important;}
+#nt-title>[carousel-item]>*{background-color: transparent;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+#nt-title a{color:#fff !important;}
+#nt-title>[carousel-item]:before{display: none;}
 
 /**内容主体*/
 .layui-layout-admin .jqadmin-body {border-left: solid 1px #1AA094;overflow-y: hidden;}

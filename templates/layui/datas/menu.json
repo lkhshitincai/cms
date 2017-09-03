@@ -34,7 +34,7 @@
 				"id": 2,
 				"url": "",
 				"name": "权限管理",
-				"iconfont": "cogs",
+				"iconfont": "lock",
 				"sub": [
 					{
 						"id": 21,
