@@ -52,7 +52,7 @@ layui.define(['jquery', 'layer'], function(exports) {
         if (conf) {
             options = $.extend({}, this.options, conf);
         }
-        var options = $.extend({}, this.options, params);
+        options = $.extend({}, options, params);
         return options;
     }
 

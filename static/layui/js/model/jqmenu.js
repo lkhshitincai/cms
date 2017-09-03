@@ -10,12 +10,13 @@
  * +----------------------------------------------------------------------
  */
 
-layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], function(exports) {
+layui.define(['laytpl', 'jqajax','form', 'layer', 'jqelem', 'tabmenu'], function(exports) {
     var $ = layui.jquery,
         tpl = layui.laytpl,
         element = layui.jqelem(),
         layer = layui.layer,
         jqajax = layui.jqajax,
+        form = layui.form,
         init = true,
         tabmenu = layui.tabmenu(),
         jqmenu = function() {
@@ -29,7 +30,7 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
      */
     jqmenu.prototype.init = function(tplid) {
         var ajax = new jqajax(),
-            options = ajax.params($(tplid)),
+            options = ajax.params($(tplid),this.options),
             _this = this;
         _this.options = options;
         tabmenu.set(options);
@@ -60,23 +61,24 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
 
         var _this = this;
         if ("" != data || undefined != data) {
+        	//加载菜单数据
             var getTpl = $(tplid).html();
             tpl(getTpl).render(data, function(html) {
-                $('#menu').html(html);
-            })
-            var submenuTpl = $('#submenu-tpl').html();
-
-            tpl(submenuTpl).render(data, function(html) {
                 $('#submenu').html(html);
-            })
+            });
+            //加载快速前往数据
+            getTpl = $("#search-list-tpl").html();
+             tpl(getTpl).render(data, function(html) {
+                $('#searchList').html(html);
+                form.render();
+                $('.layui-unselect').addClass('layui-bg-transparent');
+            });
         }
 
         _this.resize();
         _this.menuBind();
         element.init();
         _this.menuShowType();
-
-
     }
 
     /**
@@ -86,6 +88,9 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
         $(window).on('resize', function() {
             tabmenu.init();
             tabmenu.tabMove(0, 1);
+            if($("body").width()>750){
+            	$('#menuDiv').removeClass('layui-bg-black').addClass('layui-bg-transparent');
+            }
         }).resize();
     }
 
@@ -93,19 +98,13 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
      *@todo 初始化菜单 
      */
     jqmenu.prototype.menuBind = function() {
-        var _this = this,
-            //初始化时显示第一个菜单
-            locationShowType = layui.data('showType'),
-            index = locationShowType.showMenu ? locationShowType.showMenu : 1;
-        index = index - 1;
-        $('.sub-menu').eq(index).slideDown();
-        $('#menu li').removeClass("layui-this").eq(index).addClass("layui-this");
+        var _this = this;
+        
         //绑定左侧树菜单的单击事件
-        $('.sub-menu .layui-nav-item,.tab-menu,.menu-list li').bind("click", function() {
+        $('#submenu .layui-nav-item, .menu-list li').bind("click", function() {
             var obj = $(this);
 
             $('.menu-list').slideUp();
-            $('.tab-move-btn').find('i').html("&#xe604;");
 
             if (obj.find('dl').length > 0) {
                 if (obj.attr('data-bind') == 1) {
@@ -120,18 +119,6 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
             }
         });
 
-
-        //绑定主菜单单击事件，点击时显示相应的菜单
-        element.on('nav(main-menu)', function(elem) {
-            var index = (elem.index());
-            layui.data('showType', {
-                key: 'showMenu',
-                value: index + 1
-            });
-
-            $('.sub-menu').slideUp().eq(index).slideDown();
-        });
-
         //绑定更多按钮事件
         $('.tab-move-btn').bind("click", function() {
             var show = $('.menu-list').css('display');
@@ -140,19 +127,16 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
                 $('.menu-list li').bind("click", function() {
                     _this.menuSetOption($(this));
                 });
-
                 $('.menu-list').slideDown();
-                $(this).find('i').html("&#xe603;");
             } else {
                 $('.menu-list').slideUp();
-                $(this).find('i').html("&#xe604;");
             }
         })
 
         //禁止双击选中
         $('span.move-left-btn,span.move-right-btn').bind("selectstart", function() {
             return false;
-        })
+        });
 
     }
 
@@ -188,7 +172,6 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
             var layId = $(this).attr("lay-id");
 
             $('.menu-list').slideUp();
-            $('.tab-move-btn').find('i').html("&#xe604;");
             var data = {
                 layId: layId
             }
@@ -272,67 +255,43 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'layer', 'jqelem', 'tabmenu'], funct
     jqmenu.prototype.menuShowType = function() {
 
         var locationShowType = layui.data('showType');
-        var showType = locationShowType.moveType ? locationShowType.moveType : 1;
+        var showType = locationShowType.moveType ? locationShowType.moveType : 2;
 
         var bar = $('.jqamdin-left-bar'),
             _this = this,
-            showIcon = $(".menu-type").find("i"),
             minWidth = 50,
-
-            maxWidth = 200;
-        if (!_this.options.showIcon) {
             maxWidth = 160;
-        }
+            
         switch (showType) {
             case 1:
                 $('.jqadmin-body').animate({ left: minWidth });
                 bar.animate({ width: minWidth });
                 $('.jqadmin-foot').animate({ left: minWidth });
-                showIcon.html('&#xe61a;');
                 $('#submenu').find("span").hide();
-                $('#submenu').find("ul li").css("width", minWidth).css("padding-left", "0").find('i').css("font-size", "16px");
-                $('#submenu').find("ul li").find("a").css("padding-left", "4px").find("em").hasClass("layui-nav-more");
-                $('#submenu').find("ul li").children("a").each(function() {
-                    if (!$(this).find("em").hasClass("layui-nav-more")) {
-                        $(this).css("padding-left", "14px");
-                    }
-                })
-
+                $('#submenu').find("ul li").css("width", minWidth).css("padding-left", "0");
+                $('#submenu').find("ul li").find("a").css("padding-left", "4px").find('i').css("font-size", "14px");
+                $('#submenu').find("ul li dd a").css("padding-left", "0").find('i').css("font-size", "12px");
                 $('#submenu').find("ul li dl dd").css("text-indent", "8px");
                 $('#submenu').find("ul li").find("a").on('mouseenter', function() {
                     layer.tips($(this).data("title"), $(this));
                 });
 
                 if (!_this.options.showIcon) {
-                    $('.jqadmin-main-menu').find("i").removeClass("hide-icon");
                     $('#submenu').find('i').removeClass("hide-icon");
                 }
-                $('.jqadmin-main-menu').find("span").hide();
-                $('.jqadmin-main-menu').find("ul li").css({ "width": "58px", "line-height": "56px" }).find('i').css("font-size", "20px");
-                $('.jqadmin-main-menu').find("ul li").find("a").on('mouseenter', function() {
-                    layer.tips($(this).data("title"), $(this));
-                });
-
-                $('.menu-btn').find("i").html('&#xe616;');
                 break;
             default:
                 $('.jqadmin-body').animate({ left: maxWidth });
                 bar.animate({ width: maxWidth });
                 $('.jqadmin-foot').animate({ left: maxWidth });
-                showIcon.html('&#xe683;');
                 $('#submenu,.tab-menu').find("span").show();
-                $('#submenu').find("ul li").css("width", maxWidth).find("a").css("padding-left", "30px").find('i').css("font-size", "14px");
+                $('#submenu').find("ul li").css("width", maxWidth).find("a").css("padding-left", "10px").find('i').css("font-size", "16px");
+                $('#submenu').find("ul li dd a").css("padding-left", "0").find('i').css("font-size", "14px");
                 $('#submenu').find("ul li").find("a").off('mouseenter');
-                $('.tab-menu').find("a").css("padding-left", "15px").find('i').css("font-size", "16px");
                 if (!_this.options.showIcon) {
-                    $('.jqadmin-main-menu').find("i").addClass("hide-icon");
                     $('#submenu').find('i').addClass("hide-icon");
                 }
                 $('#submenu').find("ul li dl dd").css("text-indent", "20px");
-                $('.jqadmin-main-menu').find("span").show();
-                $('.jqadmin-main-menu').find("ul li").css({ "width": "auto", "line-height": "60px" }).find('i').css("font-size", "14px");
-                $('.jqadmin-main-menu').find("ul li").find("a").off('mouseenter');
-                $('.menu-btn').find("i").html('&#xe618;');
                 break;
         }
     }

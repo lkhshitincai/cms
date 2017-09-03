@@ -26,8 +26,8 @@ layui.define(['jquery', 'laytpl', 'jqajax', 'laypage', 'jqform', 'jqbind'], func
                 curr: 1,
                 pages: 0, //分页的总页数，通过服务端获取
                 server: false,
-                pageNum: 2, //每一页记录数
-                pageArr: '2,5,30',
+                pageNum: 10, //每一页记录数
+                pageArr: '5,10,30,50,100,200,500',
                 callBack: "",
                 list: {},
                 pageInfo: true

@@ -12,8 +12,21 @@
 		<title th:text="#{index.screen.title}">CMS主界面</title>
 		<!--#include file="head.html"-->
 	</head>
-
 	<body>
+		<ul class='right-click-menu'>
+			<li>
+				<a href='javascript:;' data-event='fresh'>刷新</a>
+			</li>
+			<li>
+				<a href='javascript:;' data-event='close'>关闭</a>
+			</li>
+			<li>
+				<a href='javascript:;' data-event='other'>关闭其它</a>
+			</li>
+			<li>
+				<a href='javascript:;' data-event='all'>全部关闭</a>
+			</li>
+		</ul>
 		<div class="layui-layout layui-layout-admin">
 			<!--顶部区域-->
 			<div class="layui-header layui-bg-transparent">
@@ -22,33 +35,13 @@
 					<a href="#" class="logo">layui后台管理</a>
 					<!--logo区域结束 -->
 					<!--显示/隐藏菜单开始-->
-					<a href="javascript:void(0);" class="fa fa-bars hideMenu" aria-hidden="true"></a>
+					<a href="javascript:void(0);" class="hideMenu" aria-hidden="true">
+						<i class="fa fa-bars"></i>
+					</a>
 					<!--显示/隐藏菜单结束-->
 					<!--快速导航开始-->
 					<div class="layui-form component">
-						<select name="modules" lay-verify="required" lay-search="">
-							<option value="">快速前往...</option>
-							<option value="1">layer</option>
-							<option value="2">form</option>
-							<option value="3">layim</option>
-							<option value="4">element</option>
-							<option value="5">laytpl</option>
-							<option value="6">upload</option>
-							<option value="7">laydate</option>
-							<option value="8">laypage</option>
-							<option value="9">flow</option>
-							<option value="10">util</option>
-							<option value="11">code</option>
-							<option value="12">tree</option>
-							<option value="13">layedit</option>
-							<option value="14">nav</option>
-							<option value="15">tab</option>
-							<option value="16">table</option>
-							<option value="17">select</option>
-							<option value="18">checkbox</option>
-							<option value="19">switch</option>
-							<option value="20">radio</option>
-						</select>
+						<select id="searchList" lay-verify="required" lay-search=""></select>
 						<i class="layui-icon">&#xe615;</i>
 					</div>
 					<!--快速导航结束-->
@@ -105,24 +98,21 @@
 								<img src="../../public/image/index/0.jpg" class="layui-circle" width="35" height="35">
 								<cite>请叫我马哥</cite>
 							</a>
-							<dl class="layui-nav-child">
+							<dl class="layui-nav-child ">
 								<dd>
 									<a href="javascript:;"><i class="fa fa-id-card fa-fw" aria-hidden="true"></i><cite>个人资料</cite></a>
 								</dd>
 								<dd>
 									<a href="javascript:;"><i class="fa fa-cog fa-fw" aria-hidden="true"></i><cite>修改密码</cite></a>
 								</dd>
-								<dd>
-									<a href="javascript:;"><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i><cite>消息中心</cite></a>
+								<dd class="msgCenter">
+									<a href="javascript:;" class="noAddTab"><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i><cite>消息中心</cite></a>
 								</dd>
 								<dd>
 									<a href="javascript:;" class="changeTheam noAddTab"><i class="fa fa-life-ring fa-fw" aria-hidden="true"></i><cite>切换主题</cite></a>
 								</dd>
 								<dd>
 									<a href="javascript:;" class="changeSkin noAddTab"><i class="fa fa-paint-brush fa-fw" aria-hidden="true"></i><cite>更换皮肤</cite></a>
-								</dd>
-								<dd>
-									<a href="javascript:;" class="lockcms noAddTab"><i class="fa fa-lock fa-fw" aria-hidden="true"></i><cite>锁屏</cite></a>
 								</dd>
 								<dd>
 									<a href="javascript:;" class="noAddTab"><i class="fa fa-power-off fa-fw" aria-hidden="true"></i><cite>退出</cite></a>
@@ -134,10 +124,9 @@
 				</div>
 			</div>
 			<!-- 左侧导航开始-->
-			<div class="layui-side layui-bg-transparent" id="menuDiv">
-				<div class="layui-side-scroll">
-					<!--子菜单项-->
-					<div id="submenu"></div>
+			<div class="layui-side jqamdin-left-bar layui-bg-transparent" id="menuDiv">
+				<!--子菜单项-->
+				<div class="layui-side-scroll" id="submenu">
 				</div>
 			</div>
 			<!--左侧导航结束-->
@@ -168,7 +157,7 @@
 			<div class="site-tree-mobile layui-hide"><i class="layui-icon">&#xe602;</i></div>
 			<div class="site-mobile-shade"></div>
 
-			<div class="layui-footer footer">
+			<div class="layui-footer jqadmin-foot footer">
 				<!-- 底部固定区域 -->
 				© training.com
 			</div>
@@ -177,7 +166,10 @@
 	</body>
 	<!--引入菜单模板-->
 	<!--#include file="tpl/menu.html"-->
+	<!--引入tab栏更多模板-->
 	<!--#include file="tpl/menu-list.html"-->
+	<!--快速前往模块-->
+	<!--#include file="tpl/search-list.html"-->
 	<script type="text/javascript" src="../../public/plugins/newsticker/jquery.newsTicker.js"></script>
 	<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
 	<script type="text/javascript">

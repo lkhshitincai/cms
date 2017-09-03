@@ -1,6 +1,5 @@
-layui.define(['element', 'form', 'common', 'jqmenu'], function(exports) {
+layui.define(['element', 'common', 'jqmenu'], function(exports) {
 	var common = layui.common,
-		form = layui.form,
 		element = layui.element,
 		menu = layui.jqmenu,
 		mainMenu = new menu();
@@ -11,14 +10,12 @@ layui.define(['element', 'form', 'common', 'jqmenu'], function(exports) {
 	 */
 	jqIndex.prototype.init = function() {
 
-		//      mainMenu.init('#menu-tpl',{icon:true,fresh:false});
+		mainMenu.init('#submenu-tpl',{icon:true,fresh:false});
 		this.showMenu();
 		this.showMenuMobile();
 		this.initDateAndTime();
 		this.initWeather();
 		this.initNewsTicker();
-		$('.layui-unselect').addClass('layui-bg-transparent');
-		
 	}
 	/**
 	 * 初始化轮播插件
@@ -92,8 +89,7 @@ layui.define(['element', 'form', 'common', 'jqmenu'], function(exports) {
 				key: 'moveType',
 				value: showType
 			});
-			console.log(showType);
-			//          mainMenu.menuShowType();
+          	mainMenu.menuShowType();
 		})
 	}
 	var index = new jqIndex();

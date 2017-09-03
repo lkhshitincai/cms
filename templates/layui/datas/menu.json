@@ -1,0 +1,55 @@
+{
+	"status": 200,
+	"data": {
+		"list": [
+			{
+				"id": 1,
+				"url": "",
+				"name": "系统管理",
+				"iconfont": "cogs",
+				"sub": [
+					{
+						"id": 11,
+						"url": "welcome1.html",
+						"name": "系统设置",
+						"iconfont": "cog"
+					}, {
+						"id": 12,
+						"url": "welcome2.html",
+						"name": "系统日志",
+						"iconfont": "book"
+					}, {
+						"id": 13,
+						"url": "welcome3.html",
+						"name": "菜单管理",
+						"iconfont": "server"
+					}, {
+						"id": 14,
+						"url": "welcome4.html",
+						"name": "人员管理",
+						"iconfont": "user"
+					}
+				]
+			}, {
+				"id": 2,
+				"url": "",
+				"name": "权限管理",
+				"iconfont": "cogs",
+				"sub": [
+					{
+						"id": 21,
+						"url": "#",
+						"name": "角色设置",
+						"iconfont": "users"
+					}, {
+						"id": 22,
+						"url": "#",
+						"name": "权限设置",
+						"iconfont": "id-card-o"
+					}
+				]
+			}
+		]
+	}
+}
+

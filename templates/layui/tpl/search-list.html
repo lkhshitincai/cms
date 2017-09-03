@@ -1,0 +1,15 @@
+<script id="search-list-tpl" type="text/html">
+	<option>快速前往...</option>
+    {{# layui.each(d.list, function(index, item){ }}
+    	{{# if(item.sub && item.sub.length>0){ }}
+    		<optgroup label="{{item.name}}">
+    			{{# layui.each(item.sub, function(index, child){ }}
+	    			<option varue="{{child.url}}">{{child.name}}</option>
+	    		{{# }); }}
+	    	</optgroup>
+	    {{# }else{ }}
+	    	<option varue="{{item.url}}">{{item.name}}</option>
+	    {{# } }}
+    {{# }); }}
+
+</script>

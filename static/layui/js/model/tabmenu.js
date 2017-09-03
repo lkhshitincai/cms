@@ -102,9 +102,9 @@ layui.define(['jquery', 'jqelem'], function(exports) {
 
             // 如果icon有定义则添加到标题中
             if (!_this.config.showIcon) {
-                title += '<i class="iconfont hide-icon">' + data.icon + '</i>';
+                title += '<i class="fa fa-'+data.icon+' hide-icon"></i>';
             } else {
-                title += '<i class="iconfont">' + data.icon + '</i>';
+                title += '<i class="fa fa-'+data.icon+'"></i>';
             }
             title += '<em>' + data.title + '</em>';
             if (this.config.closed) {
