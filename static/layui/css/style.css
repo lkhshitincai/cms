@@ -63,7 +63,7 @@ body {
 /**内容主体*/
 .layui-layout-admin .jqadmin-body {border-left: solid 1px #1AA094;overflow-y: hidden;}
 .layui-tab-content {height: 100%;padding: 0;}
-.layui-body {overflow: hidden;}
+.layui-body {overflow: hidden;left: 160px;}
 .layui-body .layui-tab {margin: 0;}
 .layui-tab-content .layui-tab-item {position: absolute;top: 42px;bottom: 0;left: 0;right: 0;padding: 0;margin: 0;}
 .jqadmin-body .jqadmin-tab-box {box-shadow: none;}
@@ -80,6 +80,7 @@ body {
 
 .hide-icon {display: none;}
 /*菜单栏*/
+#menuDiv{width: 160px;}
 .menu-list {position: absolute;right: 0;top: 102px;width: 120px;padding: 10px 15px;z-index: 998;background: #FFF;border: 1px solid #1FA094;border-top: none;border-radius: 0 0 3px 3px;display: none;}
 .menu-list li {height: 28px;line-height: 28px;}
 /*右键菜单*/
@@ -87,8 +88,7 @@ body {
 .right-click-menu li a {display: block;padding: 4px 10px;color: #000;border-bottom: 1px solid #F2F2F2;}    
 .right-click-menu li a:hover {background: #EEE;color: #666;}
 /*底部*/
-.footer{ text-align: center; line-height:44px;border-left: 1px solid #1AA094;}
-
+.jqadmin-foot{text-align: center; line-height:44px;border-left: 1px solid #1AA094;}
 /*响应式*/
 @media screen and (min-width:1460px){
 	.layui-nav-child >.msgCenter {display: none;}
